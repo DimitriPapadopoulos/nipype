@@ -59,7 +59,7 @@ class Level1DesignInputSpec(SPMCommandInputSpec):
 
                 hrf :
                     derivs : 2-element list
-                        Model  HRF  Derivatives. No derivatives: [0,0],
+                        Model HRF Derivatives. No derivatives: [0,0],
                         Time derivatives : [1,0], Time and Dispersion
                         derivatives: [1,1]
                 fourier, fourier_han, gamma, fir:
@@ -73,10 +73,12 @@ class Level1DesignInputSpec(SPMCommandInputSpec):
     global_intensity_normalization = traits.Enum('none', 'scaling', field='global',
                                                  desc='Global intensity normalization - scaling or none')
     mask_image = File(exists=True, field='mask',
-                      desc='Image  for  explicitly  masking the analysis')
+                      desc='Image for explicitly masking the analysis')
     mask_threshold = traits.Either(traits.Enum('-Inf'), traits.Float(),
                                    desc="Thresholding for the mask",
                                    default='-Inf', usedefault=True)
+    mask_constant_voxels = traits.Bool(True, desc='Take into account constant voxels',
+                                       usedefault=False)
     model_serial_correlations = traits.Enum('AR(1)', 'FAST', 'none',
                                             field='cvi',
                                             desc=('Model serial correlations '
@@ -138,9 +140,15 @@ class Level1Design(SPMCommand):
         if mfile is True uses matlab .m file
         else generates a job structure and saves in .mat
         """
-        if isdefined(self.inputs.mask_image):
-            # SPM doesn't handle explicit masking properly, especially
-            # when you want to use the entire mask image
+        if isdefined(self.inputs.mask_image) and False:
+            # By default, SPM masks out voxels with constant data (i.e. the
+            # same value across scans). Therefore when providing an explicit
+            # mask, the final mask is the explicit mask with constant voxels
+            # removed. This default behavior of SPM seems sensible.
+            # Would you want SPM to take into account *all* voxels within
+            # the explicit mask, Nipype provides this additional option.
+            # It modifies SPM.mat "behind the back" of SPM after specifying
+            # the model and just before running the 2nd level analysis.
             postscript = "load SPM;\n"
             postscript += "SPM.xM.VM = spm_vol('%s');\n" % list_to_filename(self.inputs.mask_image)
             postscript += "SPM.xM.I = 0;\n"
