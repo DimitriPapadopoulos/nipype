@@ -11,6 +11,7 @@ Much of the machinery at the beginning of this file has been copied over from
 nibabel denoted by ## START - COPIED FROM NIBABEL and a corresponding ## END
 
 """
+
 # Build helper
 import os
 from os.path import join as pjoin

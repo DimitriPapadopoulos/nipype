@@ -3,6 +3,7 @@
 """
 Algorithms to compute confounds in :abbr:`fMRI (functional MRI)`
 """
+
 import os
 import os.path as op
 from collections import OrderedDict

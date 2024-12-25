@@ -9,7 +9,7 @@
 #   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #   License for the specific language governing permissions and limitations
 #   under the License.
-""" cloghandler.py:  A smart replacement for the standard RotatingFileHandler
+"""cloghandler.py:  A smart replacement for the standard RotatingFileHandler
 
 ConcurrentRotatingFileHandler:  This class is a log handler which is a drop-in
 replacement for the python standard log handler 'RotateFileHandler', the primary
@@ -38,7 +38,6 @@ low-latency solution, I suggest you look elsewhere.
 See the README file for an example usage of this module.
 
 """
-
 
 __version__ = "$Id: cloghandler.py 6175 2009-11-02 18:40:35Z lowell $"
 __author__ = "Lowell Alleman"
@@ -149,9 +148,7 @@ class ConcurrentRotatingFileHandler(BaseRotatingHandler):
                 )
         try:
             BaseRotatingHandler.__init__(self, filename, mode, encoding)
-        except (
-            TypeError
-        ):  # Due to a different logging release without encoding support  (Python 2.4.1 and earlier?)
+        except TypeError:  # Due to a different logging release without encoding support  (Python 2.4.1 and earlier?)
             BaseRotatingHandler.__init__(self, filename, mode)
             self.encoding = encoding
 

@@ -8,6 +8,7 @@ Interfaces to functionality from nitime for time-series analysis of fmri data
 - nitime.viz.drawmatrix_channels
 
 """
+
 import numpy as np
 import tempfile
 

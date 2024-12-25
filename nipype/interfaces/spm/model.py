@@ -3,6 +3,7 @@
 """The spm module provides basic functions for interfacing with matlab
 and spm to access spm tools.
 """
+
 # Standard library imports
 import os
 from glob import glob

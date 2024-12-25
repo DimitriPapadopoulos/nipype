@@ -11,6 +11,7 @@ These functions include:
   * StimulusCorrelation: determines correlation between stimuli
     schedule and movement/intensity parameters
 """
+
 import os
 from copy import deepcopy
 

@@ -4,6 +4,7 @@
 <http://www.fmrib.ox.ac.uk/fsl/index.html>`_ command line tools.  This
 was written to work with FSL version 4.1.4.
 """
+
 import os
 from glob import glob
 from shutil import rmtree
@@ -2544,5 +2545,5 @@ def load_template(name):
     template : string.Template
 
     """
-    loader = acres.Loader('nipype.interfaces.fsl')
-    return Template(loader.readable('model_templates', name).read_text())
+    loader = acres.Loader("nipype.interfaces.fsl")
+    return Template(loader.readable("model_templates", name).read_text())
