@@ -323,18 +323,18 @@ class AllineateInputSpec(AFNICommandInputSpec):
         *_cost_funcs,
         argstr="-cost %s",
         desc="Defines the 'cost' function that defines the matching between "
-        "the source and the base"
+        "the source and the base",
     )
     _interp_funcs = ["nearestneighbour", "linear", "cubic", "quintic", "wsinc5"]
     interpolation = traits.Enum(
         *_interp_funcs[:-1],
         argstr="-interp %s",
-        desc="Defines interpolation method to use during matching"
+        desc="Defines interpolation method to use during matching",
     )
     final_interpolation = traits.Enum(
         *_interp_funcs,
         argstr="-final %s",
-        desc="Defines interpolation method used to create the output dataset"
+        desc="Defines interpolation method used to create the output dataset",
     )
 
     #   TECHNICAL OPTIONS (used for fine control of the program):
@@ -347,8 +347,7 @@ class AllineateInputSpec(AFNICommandInputSpec):
     )
     zclip = traits.Bool(
         argstr="-zclip",
-        desc="Replace negative values in the input datasets (source & base) "
-        "with zero.",
+        desc="Replace negative values in the input datasets (source & base) with zero.",
     )
     convergence = traits.Float(
         argstr="-conv %f", desc="Convergence test in millimeters (default 0.05mm)."
@@ -476,7 +475,7 @@ class AllineateInputSpec(AFNICommandInputSpec):
         *_cost_funcs,
         argstr="-replacemeth %s",
         desc="After first volume is aligned, switch method for later volumes. "
-        "For use with '-replacebase'."
+        "For use with '-replacebase'.",
     )
     epi = traits.Bool(
         argstr="-EPI",
@@ -516,7 +515,7 @@ class AllineateInputSpec(AFNICommandInputSpec):
     nwarp = traits.Enum(
         *_nwarp_types,
         argstr="-nwarp %s",
-        desc="Experimental nonlinear warping: bilinear or legendre poly."
+        desc="Experimental nonlinear warping: bilinear or legendre poly.",
     )
     _dirs = ["X", "Y", "Z", "I", "J", "K"]
     nwarp_fixmot = traits.List(
@@ -905,8 +904,7 @@ class BandpassInputSpec(AFNICommandInputSpec):
     )
     normalize = traits.Bool(
         argstr="-norm",
-        desc="Make all output time series have L2 norm = 1 (i.e., sum of "
-        "squares = 1).",
+        desc="Make all output time series have L2 norm = 1 (i.e., sum of squares = 1).",
     )
     automask = traits.Bool(
         argstr="-automask", desc="Create a mask from the input dataset."
@@ -2242,8 +2240,7 @@ class SegInputSpec(CommandLineInputSpec):
         argstr="-classes %s",
     )
     bmrf = traits.Float(
-        desc="Weighting factor controlling spatial homogeneity of the "
-        "classifications",
+        desc="Weighting factor controlling spatial homogeneity of the classifications",
         argstr="-bmrf %f",
     )
     bias_classes = Str(

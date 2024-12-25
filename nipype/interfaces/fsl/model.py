@@ -4,6 +4,7 @@
 <http://www.fmrib.ox.ac.uk/fsl/index.html>`_ command line tools.  This
 was written to work with FSL version 4.1.4.
 """
+
 import os
 from glob import glob
 from shutil import rmtree
@@ -589,8 +590,7 @@ class FILMGLSInputSpec(FSLCommandInputSpec):
         argstr="-ar",
         xor=_estimate_xor,
         desc=(
-            "fits autoregressive model - default is "
-            "to use tukey with M=sqrt(numvols)"
+            "fits autoregressive model - default is to use tukey with M=sqrt(numvols)"
         ),
     )
     tukey_window = traits.Int(
@@ -602,9 +602,7 @@ class FILMGLSInputSpec(FSLCommandInputSpec):
         argstr="-mt %d",
         xor=_estimate_xor,
         desc=(
-            "multitapering with slepian tapers "
-            "and num is the time-bandwidth "
-            "product"
+            "multitapering with slepian tapers and num is the time-bandwidth product"
         ),
     )
     use_pava = traits.Bool(argstr="-pava", desc="estimates autocorr using PAVA")
@@ -667,8 +665,7 @@ class FILMGLSInputSpec505(FSLCommandInputSpec):
         argstr="--ar",
         xor=_estimate_xor,
         desc=(
-            "fits autoregressive model - default is "
-            "to use tukey with M=sqrt(numvols)"
+            "fits autoregressive model - default is to use tukey with M=sqrt(numvols)"
         ),
     )
     tukey_window = traits.Int(
@@ -680,9 +677,7 @@ class FILMGLSInputSpec505(FSLCommandInputSpec):
         argstr="--mt=%d",
         xor=_estimate_xor,
         desc=(
-            "multitapering with slepian tapers "
-            "and num is the time-bandwidth "
-            "product"
+            "multitapering with slepian tapers and num is the time-bandwidth product"
         ),
     )
     use_pava = traits.Bool(argstr="--pava", desc="estimates autocorr using PAVA")
@@ -2380,8 +2375,7 @@ class GLMInputSpec(FSLCommandInputSpec):
     des_norm = traits.Bool(
         argstr="--des_norm",
         desc=(
-            "switch on normalization of the design"
-            " matrix columns to unit std deviation"
+            "switch on normalization of the design matrix columns to unit std deviation"
         ),
     )
     dat_norm = traits.Bool(
@@ -2544,5 +2538,5 @@ def load_template(name):
     template : string.Template
 
     """
-    loader = acres.Loader('nipype.interfaces.fsl')
-    return Template(loader.readable('model_templates', name).read_text())
+    loader = acres.Loader("nipype.interfaces.fsl")
+    return Template(loader.readable("model_templates", name).read_text())

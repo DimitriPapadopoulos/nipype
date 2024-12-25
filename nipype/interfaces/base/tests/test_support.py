@@ -42,7 +42,7 @@ def test_bunch_methods():
 def test_bunch_hash():
     # NOTE: Since the path to the json file is included in the Bunch,
     # the hash will be unique to each machine.
-    json_pth = acres.Loader('nipype.testing').cached('data', 'realign_json.json')
+    json_pth = acres.Loader("nipype.testing").cached("data", "realign_json.json")
 
     b = nib.Bunch(infile=str(json_pth), otherthing="blue", yat=True)
     newbdict, bhash = b._get_bunch_hash()

@@ -19,9 +19,9 @@ def test_cmdline(tmp_path):
     assert ri.inputs.script == "1 + 1"
     assert ri.inputs.script_file == default_script_file
     assert not os.path.exists(ri.inputs.script_file), "scriptfile should not exist"
-    assert not os.path.exists(
-        default_script_file
-    ), "default scriptfile should not exist."
+    assert not os.path.exists(default_script_file), (
+        "default scriptfile should not exist."
+    )
 
 
 @pytest.mark.skipif(no_r, reason="R is not available")

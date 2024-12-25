@@ -1,15 +1,16 @@
 # emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: nil -*-
 # vi: set ft=python sts=4 ts=4 sw=4 et:
-""" Set of interfaces that allow interaction with data. Currently
-    available interfaces are:
+"""Set of interfaces that allow interaction with data. Currently
+available interfaces are:
 
-    DataSource: Generic nifti to named Nifti interface
-    DataSink: Generic named output from interfaces to data store
-    XNATSource: preliminary interface to XNAT
+DataSource: Generic nifti to named Nifti interface
+DataSink: Generic named output from interfaces to data store
+XNATSource: preliminary interface to XNAT
 
-    To come :
-    XNATSink
+To come :
+XNATSink
 """
+
 import glob
 import fnmatch
 import string
@@ -130,8 +131,7 @@ def _get_head_bucket(s3_resource, bucket_name):
             raise Exception(err_msg)
         elif error_code == 404:
             err_msg = (
-                "Bucket: %s does not exist; check spelling and try "
-                "again" % bucket_name
+                "Bucket: %s does not exist; check spelling and try again" % bucket_name
             )
             raise Exception(err_msg)
         else:
@@ -1465,11 +1465,7 @@ class DataFinderInputSpec(DynamicTraitedSpec, BaseInterfaceInputSpec):
         "(.+)", usedefault=True, desc=("Regular expression for matching paths.")
     )
     ignore_regexes = traits.List(
-        desc=(
-            "List of regular expressions, "
-            "if any match the path it will be "
-            "ignored."
-        )
+        desc=("List of regular expressions, if any match the path it will be ignored.")
     )
     max_depth = traits.Int(desc="The maximum depth to search beneath the root_paths")
     min_depth = traits.Int(desc="The minimum depth to search beneath the root paths")

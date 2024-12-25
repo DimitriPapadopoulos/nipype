@@ -389,8 +389,7 @@ class MergeNifti(NiftiGeneratorBase):
 class SplitNiftiInputSpec(NiftiGeneratorBaseInputSpec):
     in_file = File(exists=True, mandatory=True, desc="Nifti file to split")
     split_dim = traits.Int(
-        desc="Dimension to split along. If not "
-        "specified, the last dimension is used."
+        desc="Dimension to split along. If not specified, the last dimension is used."
     )
 
 

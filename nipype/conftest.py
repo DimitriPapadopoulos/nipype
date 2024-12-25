@@ -21,9 +21,9 @@ def add_np(doctest_namespace):
     doctest_namespace["datadir"] = data_dir
 
 
-@pytest.fixture(scope='session', autouse=True)
+@pytest.fixture(scope="session", autouse=True)
 def legacy_printoptions():
-    np.set_printoptions(legacy='1.21')
+    np.set_printoptions(legacy="1.21")
 
 
 @pytest.fixture(autouse=True)

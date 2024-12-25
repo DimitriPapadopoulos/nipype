@@ -11,6 +11,7 @@ These functions include:
   * StimulusCorrelation: determines correlation between stimuli
     schedule and movement/intensity parameters
 """
+
 import os
 from copy import deepcopy
 
@@ -175,9 +176,7 @@ class ArtifactDetectInputSpec(BaseInterfaceInputSpec):
         File(exists=True),
         mandatory=True,
         desc=(
-            "Names of realignment "
-            "parameters corresponding to "
-            "the functional data files"
+            "Names of realignment parameters corresponding to the functional data files"
         ),
     )
     parameter_source = traits.Enum(
@@ -209,8 +208,7 @@ class ArtifactDetectInputSpec(BaseInterfaceInputSpec):
         usedefault=True,
         requires=["norm_threshold"],
         desc=(
-            "Uses a composite of the motion parameters in "
-            "order to determine outliers."
+            "Uses a composite of the motion parameters in order to determine outliers."
         ),
     )
     norm_threshold = traits.Float(
@@ -235,9 +233,7 @@ class ArtifactDetectInputSpec(BaseInterfaceInputSpec):
     zintensity_threshold = traits.Float(
         mandatory=True,
         desc=(
-            "Intensity Z-threshold use to "
-            "detection images that deviate "
-            "from the mean"
+            "Intensity Z-threshold use to detection images that deviate from the mean"
         ),
     )
     mask_type = traits.Enum(
@@ -693,8 +689,7 @@ class StimCorrInputSpec(BaseInterfaceInputSpec):
         File(exists=True),
         mandatory=True,
         desc=(
-            "Names of realignment parameters corresponding to "
-            "the functional data files"
+            "Names of realignment parameters corresponding to the functional data files"
         ),
     )
     intensity_values = InputMultiPath(

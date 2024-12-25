@@ -1,6 +1,7 @@
 # emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: nil -*-
 # vi: set ft=python sts=4 ts=4 sw=4 et:
 """Miscellaneous algorithms."""
+
 import os
 import os.path as op
 
@@ -430,8 +431,7 @@ class Matlab2CSV(BaseInterface):
                     saved_variables.append(key)
                 else:
                     iflogger.info(
-                        "One of the keys in the input file, %s, is "
-                        "not a Numpy array",
+                        "One of the keys in the input file, %s, is not a Numpy array",
                         key,
                     )
 
@@ -471,8 +471,7 @@ class Matlab2CSV(BaseInterface):
                     saved_variables.append(key)
                 else:
                     iflogger.error(
-                        "One of the keys in the input file, %s, is "
-                        "not a Numpy array",
+                        "One of the keys in the input file, %s, is not a Numpy array",
                         key,
                     )
 

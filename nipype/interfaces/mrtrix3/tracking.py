@@ -126,8 +126,7 @@ class TractographyInputSpec(MRTrix3BaseInputSpec):
     cutoff = traits.Float(
         argstr="-cutoff %f",
         desc=(
-            "set the FA or FOD amplitude cutoff for terminating "
-            "tracks (default is 0.1)"
+            "set the FA or FOD amplitude cutoff for terminating tracks (default is 0.1)"
         ),
     )
     cutoff_init = traits.Float(
@@ -214,8 +213,7 @@ class TractographyInputSpec(MRTrix3BaseInputSpec):
     crop_at_gmwmi = traits.Bool(
         argstr="-crop_at_gmwmi",
         desc=(
-            "crop streamline endpoints more "
-            "precisely as they cross the GM-WM interface"
+            "crop streamline endpoints more precisely as they cross the GM-WM interface"
         ),
     )
 

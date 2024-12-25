@@ -1099,8 +1099,7 @@ class TrackBayesDiracInputSpec(TrackInputSpec):
         argstr="-iterations %d",
         units="NA",
         desc=(
-            "Number of streamlines to generate at each "
-            "seed point. The default is 5000."
+            "Number of streamlines to generate at each seed point. The default is 5000."
         ),
     )
 

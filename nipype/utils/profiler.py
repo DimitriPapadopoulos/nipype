@@ -3,6 +3,7 @@
 """
 Utilities to keep track of performance
 """
+
 import os
 import numpy as np
 import threading
@@ -242,8 +243,7 @@ def get_max_resources_used(pid, mem_mb, num_threads, pyfunc=False):
 
     if not resource_monitor:
         raise RuntimeError(
-            "Attempted to measure resources with option "
-            '"monitoring.enabled" set off.'
+            'Attempted to measure resources with option "monitoring.enabled" set off.'
         )
 
     try:

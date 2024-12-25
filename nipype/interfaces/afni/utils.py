@@ -1,6 +1,7 @@
 # emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: nil -*-
 # vi: set ft=python sts=4 ts=4 sw=4 et:
 """AFNI utility interfaces."""
+
 import os
 import os.path as op
 import re
@@ -678,8 +679,7 @@ class CenterMassInputSpec(CommandLineInputSpec):
         position=-1,
     )
     mask_file = File(
-        desc="Only voxels with nonzero values in the provided mask will be "
-        "averaged.",
+        desc="Only voxels with nonzero values in the provided mask will be averaged.",
         argstr="-mask %s",
         exists=True,
     )
@@ -2080,8 +2080,7 @@ class NwarpApplyInputSpec(CommandLineInputSpec):
         "quintic",
         "triquintic",
         "wsinc5",
-        desc="specify a different interpolation method than might "
-        "be used for the warp",
+        desc="specify a different interpolation method than might be used for the warp",
         argstr="-ainterp %s",
     )
     out_file = File(
@@ -2144,8 +2143,7 @@ class NwarpCatInputSpec(AFNICommandInputSpec):
         "wsinc5",
         "linear",
         "quintic",
-        desc="specify a different interpolation method than might "
-        "be used for the warp",
+        desc="specify a different interpolation method than might be used for the warp",
         argstr="-interp %s",
         usedefault=True,
     )

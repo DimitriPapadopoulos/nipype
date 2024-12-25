@@ -4,6 +4,7 @@
 <http://www.fmrib.ox.ac.uk/fsl/index.html>`_ command line tools.  This
 was written to work with FSL version 4.1.4.
 """
+
 import os
 import warnings
 
@@ -232,16 +233,14 @@ class FSLXCommandInputSpec(FSLCommandInputSpec):
         argstr="--f0",
         xor=_xor_inputs3,
         desc=(
-            "Noise floor model: add to the model an "
-            "unattenuated signal compartment f0"
+            "Noise floor model: add to the model an unattenuated signal compartment f0"
         ),
     )
     f0_ard = traits.Bool(
         argstr="--f0 --ardf0",
         xor=_xor_inputs3 + ["all_ard"],
         desc=(
-            "Noise floor model: add to the model an "
-            "unattenuated signal compartment f0"
+            "Noise floor model: add to the model an unattenuated signal compartment f0"
         ),
     )
     force_dir = traits.Bool(
@@ -249,8 +248,7 @@ class FSLXCommandInputSpec(FSLCommandInputSpec):
         argstr="--forcedir",
         usedefault=True,
         desc=(
-            "use the actual directory name given "
-            "(do not add + to make a new directory)"
+            "use the actual directory name given (do not add + to make a new directory)"
         ),
     )
 

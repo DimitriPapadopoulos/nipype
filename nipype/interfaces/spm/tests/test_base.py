@@ -112,8 +112,7 @@ def test_generate_job(create_files_in_directory):
     contents = {"contents": [1, 2, 3, 4]}
     out = dc._generate_job(contents=contents)
     assert out == (
-        ".contents(1) = 1;\n.contents(2) = 2;"
-        "\n.contents(3) = 3;\n.contents(4) = 4;\n"
+        ".contents(1) = 1;\n.contents(2) = 2;\n.contents(3) = 3;\n.contents(4) = 4;\n"
     )
     # cell array of strings
     filelist, outdir = create_files_in_directory

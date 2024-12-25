@@ -3,6 +3,7 @@
 """
 Algorithms to compute confounds in :abbr:`fMRI (functional MRI)`
 """
+
 import os
 import os.path as op
 from collections import OrderedDict
@@ -486,8 +487,7 @@ class CompCorInputSpec(BaseInterfaceInputSpec):
         128, usedefault=True, desc='Cutoff (in seconds) for "cosine" pre-filter'
     )
     repetition_time = traits.Float(
-        desc="Repetition time (TR) of series - derived from image header if "
-        "unspecified"
+        desc="Repetition time (TR) of series - derived from image header if unspecified"
     )
     save_pre_filter = traits.Either(
         traits.Bool,
@@ -968,8 +968,7 @@ class NonSteadyStateDetectorInputSpec(BaseInterfaceInputSpec):
 
 class NonSteadyStateDetectorOutputSpec(TraitedSpec):
     n_volumes_to_discard = traits.Int(
-        desc="Number of non-steady state volumes"
-        "detected in the beginning of the scan."
+        desc="Number of non-steady state volumesdetected in the beginning of the scan."
     )
 
 

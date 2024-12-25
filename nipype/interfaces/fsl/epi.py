@@ -4,6 +4,7 @@
 <http://www.fmrib.ox.ac.uk/fsl/index.html>`_ command line tools.  This
 was written to work with FSL version 5.0.4.
 """
+
 import os
 import numpy as np
 import nibabel as nb
@@ -1549,8 +1550,7 @@ class EddyQuadInputSpec(FSLCommandInputSpec):
         exists=True,
         argstr="--bvecs %s",
         desc=(
-            "b-vectors file - only used when <base_name>.eddy_residuals "
-            "file is present"
+            "b-vectors file - only used when <base_name>.eddy_residuals file is present"
         ),
     )
     output_dir = traits.Str(

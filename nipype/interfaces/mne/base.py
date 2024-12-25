@@ -49,8 +49,7 @@ class WatershedBEMOutputSpec(TraitedSpec):
     mesh_files = OutputMultiPath(
         File(exists=True),
         desc=(
-            "Paths to the output meshes (brain, inner "
-            "skull, outer skull, outer skin)"
+            "Paths to the output meshes (brain, inner skull, outer skull, outer skin)"
         ),
     )
     brain_surface = File(

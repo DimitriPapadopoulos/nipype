@@ -229,8 +229,7 @@ def convert():
     "-x",
     "--container-index",
     type=str,
-    help="Optional index where the image is available (e.g. "
-    "http://index.docker.io).",
+    help="Optional index where the image is available (e.g. http://index.docker.io).",
 )
 @click.option(
     "-g",

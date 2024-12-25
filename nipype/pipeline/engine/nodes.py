@@ -4,6 +4,7 @@
 
 The `Node` class provides core functionality for batch processing.
 """
+
 from collections import OrderedDict, defaultdict
 
 import os

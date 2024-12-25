@@ -4,6 +4,7 @@
 <http://www.fmrib.ox.ac.uk/fsl/index.html>`_ command line tools.  This
 was written to work with FSL version 4.1.4.
 """
+
 import os
 import os.path as op
 from warnings import warn
@@ -87,8 +88,7 @@ class BETInputSpec(FSLCommandInputSpec):
     )
     padding = traits.Bool(
         desc=(
-            "improve BET if FOV is very small in Z (by temporarily padding "
-            "end slices)"
+            "improve BET if FOV is very small in Z (by temporarily padding end slices)"
         ),
         argstr="-Z",
         xor=_xor_inputs,
@@ -276,9 +276,7 @@ class FASTInputSpec(FSLCommandInputSpec):
     init_seg_smooth = traits.Range(
         low=0.0001,
         high=0.1,
-        desc="initial segmentation spatial "
-        "smoothness (during bias field "
-        "estimation)",
+        desc="initial segmentation spatial smoothness (during bias field estimation)",
         argstr="-f %.3f",
     )
     segments = traits.Bool(
@@ -334,14 +332,12 @@ class FASTOutputSpec(TraitedSpec):
 
     tissue_class_map = File(
         exists=True,
-        desc="path/name of binary segmented volume file"
-        " one val for each class  _seg",
+        desc="path/name of binary segmented volume file one val for each class  _seg",
     )
     tissue_class_files = OutputMultiPath(
         File(
             desc=(
-                "path/name of binary segmented volumes one file for each class  "
-                "_seg_x"
+                "path/name of binary segmented volumes one file for each class  _seg_x"
             )
         )
     )
@@ -1032,11 +1028,7 @@ class FNIRTInputSpec(FSLCommandInputSpec):
         traits.Bool,
         File,
         argstr="--intout=%s",
-        desc=(
-            "name of files for writing "
-            "information pertaining to "
-            "intensity mapping"
-        ),
+        desc=("name of files for writing information pertaining to intensity mapping"),
         hash_files=False,
     )
     log_file = File(
@@ -1319,9 +1311,9 @@ class FNIRT(FSLCommand):
             if name == "out_intensitymap_file":
                 value = self._list_outputs()[name]
             value = [FNIRT.intensitymap_file_basename(v) for v in value]
-            assert (
-                len(set(value)) == 1
-            ), f"Found different basenames for {name}: {value}"
+            assert len(set(value)) == 1, (
+                f"Found different basenames for {name}: {value}"
+            )
             return spec.argstr % value[0]
         if name in list(self.filemap.keys()):
             return spec.argstr % self._list_outputs()[name]
@@ -1516,8 +1508,7 @@ class SliceTimerInputSpec(FSLCommandInputSpec):
         exists=True,
         argstr="--tcustom=%s",
         desc=(
-            "slice timings, in fractions of TR, range 0:1 (default is 0.5 = "
-            "no shift)"
+            "slice timings, in fractions of TR, range 0:1 (default is 0.5 = no shift)"
         ),
     )
     global_shift = traits.Float(

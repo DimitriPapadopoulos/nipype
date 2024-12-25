@@ -8,6 +8,7 @@ Examples
 --------
 See the docstrings of the individual classes for examples.
 """
+
 import os
 import os.path as op
 import re
@@ -2178,8 +2179,7 @@ class WarpUtilsOutputSpec(TraitedSpec):
     )
     out_jacobian = File(
         desc=(
-            "Name of output file, containing the map of the determinant of "
-            "the Jacobian"
+            "Name of output file, containing the map of the determinant of the Jacobian"
         )
     )
 

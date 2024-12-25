@@ -71,12 +71,12 @@ def test_cmdline_profiling(tmpdir, mem_gb, n_procs, use_resource_monitor):
     iface = UseResources(mem_gb=mem_gb, n_procs=n_procs)
     result = iface.run()
 
-    assert (
-        abs(mem_gb - result.runtime.mem_peak_gb) < 0.3
-    ), "estimated memory error above .3GB"
-    assert (
-        int(result.runtime.cpu_percent / 100 + 0.2) == n_procs
-    ), "wrong number of threads estimated"
+    assert abs(mem_gb - result.runtime.mem_peak_gb) < 0.3, (
+        "estimated memory error above .3GB"
+    )
+    assert int(result.runtime.cpu_percent / 100 + 0.2) == n_procs, (
+        "wrong number of threads estimated"
+    )
 
 
 @pytest.mark.skipif(
@@ -100,7 +100,7 @@ def test_function_profiling(tmpdir, mem_gb, n_procs, use_resource_monitor):
     iface.inputs.n_procs = n_procs
     result = iface.run()
 
-    assert (
-        abs(mem_gb - result.runtime.mem_peak_gb) < 0.3
-    ), "estimated memory error above .3GB"
+    assert abs(mem_gb - result.runtime.mem_peak_gb) < 0.3, (
+        "estimated memory error above .3GB"
+    )
     assert int(result.runtime.cpu_percent / 100 + 0.2) >= n_procs

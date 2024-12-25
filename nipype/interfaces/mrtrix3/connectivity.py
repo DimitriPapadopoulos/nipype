@@ -156,8 +156,7 @@ class LabelConfigInputSpec(CommandLineInputSpec):
     )
     lut_aal = File(
         argstr="-lut_aal %s",
-        desc="get information from the AAL "
-        'lookup table (typically "ROI_MNI_V4.txt")',
+        desc='get information from the AAL lookup table (typically "ROI_MNI_V4.txt")',
     )
     lut_itksnap = File(
         argstr="-lut_itksnap %s",

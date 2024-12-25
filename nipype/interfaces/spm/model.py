@@ -3,6 +3,7 @@
 """The spm module provides basic functions for interfacing with matlab
 and spm to access spm tools.
 """
+
 # Standard library imports
 import os
 from glob import glob
@@ -105,9 +106,7 @@ Dictionary names of the basis function to parameters:
         "none",
         field="cvi",
         desc=(
-            "Model serial correlations "
-            "AR(1), FAST or none. FAST "
-            "is available in SPM12"
+            "Model serial correlations AR(1), FAST or none. FAST is available in SPM12"
         ),
     )
     flags = traits.Dict(
@@ -256,8 +255,7 @@ class EstimateModelOutputSpec(TraitedSpec):
     spmT_images = OutputMultiPath(
         File(exists=True),
         desc=(
-            "stat images from a t-contrast"
-            "(created if factor_info used in Level1Design)"
+            "stat images from a t-contrast(created if factor_info used in Level1Design)"
         ),
     )
     ess_images = OutputMultiPath(

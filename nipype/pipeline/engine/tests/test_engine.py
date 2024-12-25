@@ -1,7 +1,7 @@
 # emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: nil -*-
 # vi: set ft=python sts=4 ts=4 sw=4 et:
-"""Tests for the engine module
-"""
+"""Tests for the engine module"""
+
 from copy import deepcopy
 from glob import glob
 import os
@@ -543,7 +543,7 @@ def test_write_graph_dotfile(tmpdir, graph_type, simple):
     with open("graph.dot") as f:
         # Replace handles change in networkx behavior when graph is missing a name
         # Probably around 3, but I haven't tracked it down.
-        graph_str = f.read().replace('  {', ' {')
+        graph_str = f.read().replace("  {", " {")
 
     if simple:
         for line in dotfiles[graph_type]:
@@ -639,7 +639,7 @@ def test_write_graph_dotfile_iterables(tmpdir, graph_type, simple):
     with open("graph.dot") as f:
         # Replace handles change in networkx behavior when graph is missing a name
         # Probably around 3, but I haven't tracked it down.
-        graph_str = f.read().replace('  {', ' {')
+        graph_str = f.read().replace("  {", " {")
 
     if simple:
         for line in dotfiles_iter[graph_type]:

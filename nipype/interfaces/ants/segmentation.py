@@ -1183,8 +1183,7 @@ class DenoiseImageInputSpec(ANTSCommandInputSpec):
         hash_files=False,
         keep_extension=True,
         name_template="%s_noise_corrected",
-        desc="The output consists of the noise corrected"
-        " version of the input image.",
+        desc="The output consists of the noise corrected version of the input image.",
     )
     save_noise = traits.Bool(
         False,

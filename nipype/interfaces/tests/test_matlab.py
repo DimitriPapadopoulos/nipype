@@ -40,9 +40,9 @@ def test_cmdline():
     assert mi.inputs.script == "whos"
     assert mi.inputs.script_file == "testscript"
     assert not os.path.exists(mi.inputs.script_file), "scriptfile should not exist"
-    assert not os.path.exists(
-        default_script_file
-    ), "default scriptfile should not exist."
+    assert not os.path.exists(default_script_file), (
+        "default scriptfile should not exist."
+    )
 
 
 @pytest.mark.skipif(no_matlab, reason="matlab is not available")

@@ -405,8 +405,7 @@ class LegacyMultiProcPlugin(DistributedPluginBase):
             free_memory_gb -= next_job_gb
             free_processors -= next_job_th
             logger.debug(
-                "Allocating %s ID=%d (%0.2fGB, %d threads). Free: "
-                "%0.2fGB, %d threads.",
+                "Allocating %s ID=%d (%0.2fGB, %d threads). Free: %0.2fGB, %d threads.",
                 self.procs[jobid].fullname,
                 jobid,
                 next_job_gb,

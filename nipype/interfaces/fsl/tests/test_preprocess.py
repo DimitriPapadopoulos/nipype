@@ -421,27 +421,34 @@ def test_fnirt(setup_flirt):
         log = fnirt._gen_fname(infile, suffix="_log.txt", change_ext=False)
         iout = fnirt._gen_fname(infile, suffix="_warped")
         if item in ("max_nonlin_iter"):
-            cmd = (
-                "fnirt --in=%s "
-                "--logout=%s"
-                " %s=%s --ref=%s"
-                " --iout=%s" % (infile, log, flag, strval, reffile, iout)
+            cmd = "fnirt --in=%s --logout=%s %s=%s --ref=%s --iout=%s" % (
+                infile,
+                log,
+                flag,
+                strval,
+                reffile,
+                iout,
             )
         elif item in ("in_fwhm", "intensity_mapping_model"):
             cmd = f"fnirt --in={infile} {flag}={strval} --logout={log} --ref={reffile} --iout={iout}"
         elif item.startswith("apply"):
-            cmd = (
-                "fnirt %s=%s "
-                "--in=%s "
-                "--logout=%s "
-                "--ref=%s --iout=%s" % (flag, strval, infile, log, reffile, iout)
+            cmd = "fnirt %s=%s --in=%s --logout=%s --ref=%s --iout=%s" % (
+                flag,
+                strval,
+                infile,
+                log,
+                reffile,
+                iout,
             )
 
         else:
-            cmd = (
-                "fnirt "
-                "--in=%s --logout=%s "
-                "--ref=%s %s=%s --iout=%s" % (infile, log, reffile, flag, strval, iout)
+            cmd = "fnirt --in=%s --logout=%s --ref=%s %s=%s --iout=%s" % (
+                infile,
+                log,
+                reffile,
+                flag,
+                strval,
+                iout,
             )
         assert fnirt.cmdline == cmd
 
@@ -486,17 +493,20 @@ def test_fnirt(setup_flirt):
         fnirt = fsl.FNIRT(in_file=infile, ref_file=reffile, **{name: arg})
 
         if name in ("config_file", "affine_file", "field_file", "fieldcoeff_file"):
-            cmd = (
-                "fnirt %s --in=%s "
-                "--logout=%s "
-                "--ref=%s --iout=%s" % (settings, infile, log, reffile, iout)
+            cmd = "fnirt %s --in=%s --logout=%s --ref=%s --iout=%s" % (
+                settings,
+                infile,
+                log,
+                reffile,
+                iout,
             )
         elif name in ("refmask_file"):
-            cmd = (
-                "fnirt --in=%s "
-                "--logout=%s --ref=%s "
-                "%s "
-                "--iout=%s" % (infile, log, reffile, settings, iout)
+            cmd = "fnirt --in=%s --logout=%s --ref=%s %s --iout=%s" % (
+                infile,
+                log,
+                reffile,
+                settings,
+                iout,
             )
         elif name in (
             "in_intensitymap_file",
@@ -504,23 +514,27 @@ def test_fnirt(setup_flirt):
             "inmask_file",
             "jacobian_file",
         ):
-            cmd = (
-                "fnirt --in=%s "
-                "%s "
-                "--logout=%s --ref=%s "
-                "--iout=%s" % (infile, settings, log, reffile, iout)
+            cmd = "fnirt --in=%s %s --logout=%s --ref=%s --iout=%s" % (
+                infile,
+                settings,
+                log,
+                reffile,
+                iout,
             )
         elif name in ("log_file"):
-            cmd = (
-                "fnirt --in=%s "
-                "%s --ref=%s "
-                "--iout=%s" % (infile, settings, reffile, iout)
+            cmd = "fnirt --in=%s %s --ref=%s --iout=%s" % (
+                infile,
+                settings,
+                reffile,
+                iout,
             )
         else:
-            cmd = (
-                "fnirt --in=%s "
-                "--logout=%s %s "
-                "--ref=%s --iout=%s" % (infile, log, settings, reffile, iout)
+            cmd = "fnirt --in=%s --logout=%s %s --ref=%s --iout=%s" % (
+                infile,
+                log,
+                settings,
+                reffile,
+                iout,
             )
 
         assert fnirt.cmdline == cmd
@@ -547,17 +561,20 @@ def test_applywarp(setup_flirt):
             in_file=infile, ref_file=reffile, field_file=reffile, **{name: settings[1]}
         )
         if name == "out_file":
-            realcmd = (
-                "applywarp --in=%s "
-                "--ref=%s --out=%s "
-                "--warp=%s" % (infile, reffile, settings[1], reffile)
+            realcmd = "applywarp --in=%s --ref=%s --out=%s --warp=%s" % (
+                infile,
+                reffile,
+                settings[1],
+                reffile,
             )
         else:
             outfile = awarp._gen_fname(infile, suffix="_warp")
-            realcmd = (
-                "applywarp --in=%s "
-                "--ref=%s --out=%s "
-                "--warp=%s %s" % (infile, reffile, outfile, reffile, settings[0])
+            realcmd = "applywarp --in=%s --ref=%s --out=%s --warp=%s %s" % (
+                infile,
+                reffile,
+                outfile,
+                reffile,
+                settings[0],
             )
         assert awarp.cmdline == realcmd
 

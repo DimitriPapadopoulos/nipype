@@ -152,8 +152,7 @@ class DeconvolveInputSpec(AFNICommandInputSpec):
         exists=True,
     )
     polort = traits.Int(
-        desc="degree of polynomial corresponding to the null hypothesis "
-        "[default: 1]",
+        desc="degree of polynomial corresponding to the null hypothesis [default: 1]",
         argstr="-polort %d",
     )
     ortvec = Tuple(

@@ -3,6 +3,7 @@
 """
 Miscellaneous algorithms for 2D contours and 3D triangularized meshes handling
 """
+
 import os.path as op
 import numpy as np
 from numpy import linalg as nla
@@ -425,6 +426,5 @@ class P2PDistance(ComputeMeshWarp):
     def __init__(self, **inputs):
         super().__init__(**inputs)
         IFLOGGER.warning(
-            "This interface has been deprecated since 1.0, please "
-            "use ComputeMeshWarp"
+            "This interface has been deprecated since 1.0, please use ComputeMeshWarp"
         )

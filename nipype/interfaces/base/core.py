@@ -10,6 +10,7 @@ The I/O specifications corresponding to these base
 interfaces are found in the ``specs`` module.
 
 """
+
 import os
 import subprocess as sp
 import shlex
@@ -651,8 +652,7 @@ class CommandLine(BaseInterface):
         """sets base command, immutable"""
         if not self._cmd:
             raise NotImplementedError(
-                "CommandLineInterface should wrap an executable, but "
-                "none has been set."
+                "CommandLineInterface should wrap an executable, but none has been set."
             )
         return self._cmd
 

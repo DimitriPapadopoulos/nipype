@@ -4,6 +4,7 @@
 Image assessment algorithms. Typical overlap and error computation
 measures to evaluate results from other processing units.
 """
+
 import os
 import os.path as op
 
@@ -464,15 +465,13 @@ class FuzzyOverlap(SimpleInterface):
 
         if np.any(refdata < 0.0):
             iflogger.warning(
-                'Negative values encountered in "in_ref" input, '
-                "taking absolute values."
+                'Negative values encountered in "in_ref" input, taking absolute values.'
             )
             refdata = np.abs(refdata)
 
         if np.any(tstdata < 0.0):
             iflogger.warning(
-                'Negative values encountered in "in_tst" input, '
-                "taking absolute values."
+                'Negative values encountered in "in_tst" input, taking absolute values.'
             )
             tstdata = np.abs(tstdata)
 

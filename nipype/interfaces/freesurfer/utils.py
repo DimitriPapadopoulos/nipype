@@ -1,7 +1,7 @@
 # emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: nil -*-
 # vi: set ft=python sts=4 ts=4 sw=4 et:
-"""Interfaces to assorted Freesurfer utility programs.
-"""
+"""Interfaces to assorted Freesurfer utility programs."""
+
 import os
 import re
 import shutil
@@ -1120,7 +1120,7 @@ class ImageInfo(FSCommand):
     output_spec = ImageInfoOutputSpec
 
     def info_regexp(self, info, field, delim="\n"):
-        m = re.search(fr"{field}\s*:\s+(.+?){delim}", info)
+        m = re.search(rf"{field}\s*:\s+(.+?){delim}", info)
         if m:
             return m.group(1)
         else:

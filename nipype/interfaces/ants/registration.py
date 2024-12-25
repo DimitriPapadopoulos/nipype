@@ -1,5 +1,5 @@
 """The ants module provides basic functions for interfacing with ants
-   functions.
+functions.
 """
 
 import os
@@ -22,11 +22,7 @@ class ANTSInputSpec(ANTSCommandInputSpec):
         File(exists=True),
         argstr="%s",
         mandatory=True,
-        desc=(
-            "image to apply transformation to "
-            "(generally a coregistered"
-            "functional)"
-        ),
+        desc=("image to apply transformation to (generally a coregisteredfunctional)"),
     )
 
     #    Not all metrics are appropriate for all modalities. Also, not all metrics
@@ -1382,9 +1378,9 @@ class Registration(ANTSCommand):
             if not self.inputs.collapse_output_transforms:
                 transform_count = 0
                 if isdefined(self.inputs.initial_moving_transform):
-                    outputs[
-                        "forward_transforms"
-                    ] += self.inputs.initial_moving_transform
+                    outputs["forward_transforms"] += (
+                        self.inputs.initial_moving_transform
+                    )
                     outputs["forward_invert_flags"] += invert_initial_moving_transform
                     outputs["reverse_transforms"] = (
                         self.inputs.initial_moving_transform
@@ -1392,9 +1388,7 @@ class Registration(ANTSCommand):
                     )
                     outputs["reverse_invert_flags"] = [
                         not e for e in invert_initial_moving_transform
-                    ] + outputs[
-                        "reverse_invert_flags"
-                    ]  # Prepend
+                    ] + outputs["reverse_invert_flags"]  # Prepend
                     transform_count += len(self.inputs.initial_moving_transform)
                 elif isdefined(self.inputs.initial_moving_transform_com):
                     forward_filename, forward_inversemode = self._output_filenames(
