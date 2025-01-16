@@ -1559,8 +1559,7 @@ class CalculateMedian(BaseInterface):
             in_ext = in_ext2 + in_ext
         if ext is None:
             ext = in_ext
-        if ext.startswith("."):
-            ext = ext[1:]
+        ext = ext.removeprefix(".")
         if self.inputs.median_file:
             outname = self.inputs.median_file
         else:

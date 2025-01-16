@@ -162,8 +162,7 @@ Bradley L. and Petersen, Steven E.},
         if ext is None:
             ext = in_ext
 
-        if ext.startswith("."):
-            ext = ext[1:]
+        ext = ext.removeprefix(".")
 
         return op.abspath(f"{fname}_{suffix}.{ext}")
 

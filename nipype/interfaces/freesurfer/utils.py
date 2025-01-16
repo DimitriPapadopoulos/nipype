@@ -1002,8 +1002,7 @@ class SurfaceSnapshots(FSCommand):
         elif name == "annot_name" and isdefined(value):
             # Matching annot by name needs to strip the leading hemi and trailing
             # extension strings
-            if value.endswith(".annot"):
-                value = value[:-6]
+            value = value.removesuffix(".annot")
             if re.match(r"%s[\.\-_]" % self.inputs.hemi, value[:3]):
                 value = value[3:]
             return "-annotation %s" % value
@@ -1135,8 +1134,7 @@ class ImageInfo(FSCommand):
         # Pulse sequence parameters
         for field in ["TE", "TR", "TI"]:
             fieldval = self.info_regexp(info, field, ", ")
-            if fieldval.endswith(" msec"):
-                fieldval = fieldval[:-5]
+            fieldval = fieldval.removesuffix(" msec")
             setattr(outputs, field, fieldval)
 
         # Voxel info
